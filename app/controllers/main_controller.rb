@@ -1,7 +1,7 @@
 class MainController < ApplicationController
   # Initialize an empty array to store chat messages as a class variable.
   cattr_accessor :chat_history
-  self.chat_history = ''
+  self.chat_history = []
 
   def index
     # Read chat history from the file and store it in memory.
@@ -14,8 +14,8 @@ class MainController < ApplicationController
     # Read the existing chat history from the file
     existing_chat_history = read_chat_history
   
-    # Append the new message and a newline character to the existing chat history
-    updated_chat_history = "#{existing_chat_history}\n#{content}\n"
+    # Append the new message to the existing chat history with a newline character
+    updated_chat_history = "#{existing_chat_history}\n#{content}"
   
     # Save the updated chat history back to the file
     write_chat_history(updated_chat_history)

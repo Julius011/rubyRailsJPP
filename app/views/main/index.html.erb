@@ -22,7 +22,7 @@
     </div>
     <div class="filtered-comms">
       <h2>Filtered</h2>
-      <textarea class="form-control responsive-textarea" readonly><%=  %></textarea>
+      <textarea class="form-control responsive-textarea" readonly><%= "Placeholder for Filtered Messages" %></textarea>
     </div>
     <div class="node-list">
       <h2>Node List</h2>
@@ -33,7 +33,7 @@
 <div class="footer">
   <div class="footer-container">
     <div class="text-area">
-      <%= form_with(url: main_save_path, method: :post) do |f| %>
+      <%= form_with(model: @chat_message, url: main_save_path, method: :post) do |f| %>
         <%= f.text_area :content, class: "form-control responsive-writearea", placeholder: "Write your message here..." %>
         <%= f.submit "Send", class: "btn btn-primary" %>
       <% end %>
