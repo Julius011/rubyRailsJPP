@@ -1,0 +1,48 @@
+<div class="header">
+  <h1>Emergency Communication Program</h1>
+</div>
+
+<div class="content">
+  <div class="row">
+    <div class="column">
+      <h2>Status</h2>
+    </div>
+    <div class="column">
+      <h2>Friend Node</h2>
+    </div>
+    <div class="column">
+      <h2>My Node</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="public-comms">
+      <h2>Public</h2>
+      <textarea class="form-control responsive-textarea" readonly><%= @chat_history %></textarea>
+    </div>
+    <div class="filtered-comms">
+      <h2>Filtered</h2>
+      <textarea class="form-control responsive-textarea" readonly><%=  %></textarea>
+    </div>
+    <div class="node-list">
+      <h2>Node List</h2>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-container">
+    <div class="text-area">
+      <%= form_with(url: main_save_path, method: :post) do |f| %>
+        <%= f.text_area :content, class: "form-control responsive-writearea", placeholder: "Write your message here..." %>
+        <%= f.submit "Send", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  
+    <div class="erase-button">
+      <%= form_with(url: main_erase_history_path, method: :delete, data: { confirm: "Are you sure you want to erase the File Content" }) do |f| %>
+        <%= f.submit "Erase public", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
