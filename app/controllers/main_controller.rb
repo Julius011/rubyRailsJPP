@@ -34,6 +34,11 @@ class MainController < ApplicationController
     redirect_to main_index_path, notice: "Chat history has been erased."
   end
 
+  def trigger_texting_task
+    ScriptRunner.run
+    redirect_to main_index_path, notice: "Texting task triggered."
+  end
+
   private
 
   def read_chat_history
